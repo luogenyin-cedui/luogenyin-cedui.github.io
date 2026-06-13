@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>罗根银 · 策对咨询 | 营销顾问 · 团队建设者</title>
+<meta name="description" content="罗根银（Luogenyin）· 深圳策对咨询营销顾问。富士康SMT生产管理出身，团队营销建设、AI智能体营销经验，现服务于张远坤老师团队，助力中小民营企业经营落地。" />
+<style>
+  /* ================= 基础重置 ================= */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: #0a0e1a;
+    color: #e6e8ee;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  ul { list-style: none; }
+
+  /* ================= 配色变量 ================= */
+  :root {
+    --bg-primary: #0a0e1a;
+    --bg-secondary: #111726;
+    --bg-card: #161c2e;
+    --border: rgba(212, 175, 55, 0.15);
+    --border-hover: rgba(212, 175, 55, 0.45);
+    --gold: #d4af37;
+    --gold-bright: #f4cf5b;
+    --gold-dim: #8a7320;
+    --text-primary: #e6e8ee;
+    --text-secondary: #9aa3b8;
+    --text-muted: #5f6781;
+  }
+
+  /* ================= 导航栏 ================= */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10, 14, 26, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    transition: all 0.3s ease;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .logo .accent { color: var(--gold); }
+  .logo .sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-left: 8px;
+    font-weight: 400;
+  }
+  .nav-menu {
+    display: flex;
+    gap: 32px;
+  }
+  .nav-menu a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-menu a:hover { color: var(--gold); }
+  .nav-menu a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-menu a:hover::after { width: 100%; }
+  .menu-toggle { display: none; background: none; border: none; color: var(--gold); font-size: 24px; cursor: pointer; }
+
+  /* ================= Hero 英雄区 ================= */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 32px 80px;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(100, 120, 200, 0.06) 0%, transparent 50%),
+      var(--bg-primary);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-tag {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 88px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+  }
+  .hero h1 .gold {
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 60%, var(--gold-dim) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-subtitle {
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .hero-quote {
+    font-size: 17px;
+    color: var(--text-primary);
+    max-width: 720px;
+    margin: 0 auto 56px;
+    line-height: 1.9;
+    padding: 28px 32px;
+    background: rgba(212, 175, 55, 0.04);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+  }
+  .hero-quote em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+    color: #0a0e1a;
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ================= 通用板块 ================= */
+  section {
+    padding: 100px 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-tag {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .section-subtitle {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 720px;
+    margin-bottom: 64px;
+  }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ================= 时间轴 ================= */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+    margin-top: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 56px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px; top: 8px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+  }
+  .timeline-year {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .timeline-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .timeline-desc {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-size: 15px;
+  }
+  .timeline-insight {
+    color: var(--text-primary);
+    font-style: italic;
+    padding: 12px 16px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 2px solid var(--gold);
+    margin: 16px 0;
+    font-size: 15px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .tag {
+    padding: 4px 12px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 12px;
+    border-radius: 100px;
+  }
+
+  /* ================= 卡片网格 ================= */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 28px;
+    transition: all 0.3s;
+  }
+  .card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  }
+  .card-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .card-title {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .card-desc {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ================= 数据背书 ================= */
+  .stats-section {
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    padding: 64px 48px;
+    margin: 0 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+  }
+  .stats-section .section-tag,
+  .stats-section .section-title,
+  .stats-section .section-subtitle { text-align: center; }
+  .stats-section .section-subtitle { margin-left: auto; margin-right: auto; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    color: var(--text-secondary);
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  /* ================= 案例见证 ================= */
+  .case-list { display: grid; gap: 24px; margin-top: 40px; }
+  .case-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    transition: all 0.3s;
+  }
+  .case-item:hover { border-color: var(--border-hover); }
+  .case-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .case-title { font-size: 18px; font-weight: 700; }
+  .case-industry {
+    padding: 4px 12px;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    font-size: 12px;
+    border-radius: 100px;
+  }
+  .case-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .case-step-label {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .case-step-text { color: var(--text-secondary); font-size: 14px; }
+  .case-arrow { color: var(--gold); font-size: 20px; }
+  .case-result {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(212, 175, 55, 0.06);
+    border-left: 3px solid var(--gold);
+    color: var(--text-primary);
+    font-size: 15px;
+  }
+  .case-result strong { color: var(--gold-bright); }
+
+  /* ================= 合作方式 ================= */
+  .collab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  /* ================= 联系区 ================= */
+  .contact {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 60%),
+      var(--bg-secondary);
+    border-radius: 20px;
+    padding: 80px 48px;
+    text-align: center;
+    border: 1px solid var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .contact h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 20px; }
+  .contact p { color: var(--text-secondary); margin-bottom: 32px; }
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .contact-item { text-align: center; }
+  .contact-item-label {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .contact-item-value { font-size: 16px; color: var(--text-primary); }
+
+  /* ================= 页脚 ================= */
+  footer {
+    text-align: center;
+    padding: 40px 32px;
+    color: var(--text-muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 80px;
+  }
+  footer .gold { color: var(--gold); }
+
+  /* ================= 响应式 ================= */
+  @media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-menu.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--bg-primary);
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .menu-toggle { display: block; }
+    section { padding: 64px 20px; }
+    .stats-section, .contact { padding: 48px 24px; margin: 0 20px; }
+    .case-flow { grid-template-columns: 1fr; text-align: center; }
+    .case-arrow { transform: rotate(90deg); }
+    .hero-quote { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== 导航 ============== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="accent">罗根银</span>·<span class="accent">策对</span>
+      <span class="sub">LUOGENYIN · CEDUI</span>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#about">关于我</a></li>
+      <li><a href="#advantage">核心优势</a></li>
+      <li><a href="#mentor">导师与平台</a></li>
+      <li><a href="#cases">服务案例</a></li>
+      <li><a href="#contact">合作联系</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </div>
+</nav>
+
+<!-- ============== Hero 英雄区 ============== -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">营销顾问 · 团队建设者 · 智能化推动者</span>
+    <h1>
+      <span class="gold">陪跑</span>中小民营企业<br />
+      <span class="gold">拿结果</span>的人
+    </h1>
+    <p class="hero-subtitle">从富士康生产一线，到营销咨询前沿 —— 我懂制造业的底层逻辑，也懂经营落地的每一步</p>
+    <div class="hero-quote">
+      "见过<em>经营基本功</em>的威力，更懂中小民营企业缺什么。<br />
+      链接大型企业老板、创业青年、管理精英，<em>陪跑式落地</em>，是我们这代营销人的使命。"
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">预约深度沟通 →</a>
+      <a href="#about" class="btn btn-outline">了解我的履历</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== 关于我 - 时间轴 ============== -->
+<section id="about">
+  <span class="section-tag">01 · ABOUT ME</span>
+  <h2 class="section-title">从生产一线到营销前沿</h2>
+  <p class="section-subtitle">十八年沉淀，三次转身。每一次选择都让我离"陪跑者"的角色更近一步。</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="timeline-year">2007 — 2014</span>
+      <h3 class="timeline-title">富士康科技集团 · SMT生产管理</h3>
+      <p class="timeline-desc">高中毕业后进入富士康，从SMT生产一线做起，深入制造业的每一个毛细血管。7年时间，让我懂得了"标准化、流程化、精细化"的工业底层思维，也让我理解了一线员工真正的需求。</p>
+      <div class="timeline-insight">"在富士康学到的不是SMT技术，是制造业的<em>系统作战能力</em>。这种能力，后来成为我做营销咨询的底层支撑。"</div>
+      <div class="tags">
+        <span class="tag">SMT生产管理</span>
+        <span class="tag">精益生产</span>
+        <span class="tag">团队管理</span>
+        <span class="tag">工业底层思维</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-year">2014 — 2019</span>
+      <h3 class="timeline-title">团队营销管理建设</h3>
+      <p class="timeline-desc">转身进入营销领域，主攻团队营销管理体系建设。从零搭建过多个营销团队，深度参与销售漏斗设计、激励机制打造、团队文化塑造。也正是在这个阶段，我意识到——<em>营销不是个人的英雄主义，是团队的系统作战</em>。</p>
+      <div class="tags">
+        <span class="tag">营销团队搭建</span>
+        <span class="tag">销售管理体系</span>
+        <span class="tag">激励机制设计</span>
+        <span class="tag">团队文化</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-year">2019 — 2024</span>
+      <h3 class="timeline-title">AI 智能体产品营销</h3>
+      <p class="timeline-desc">在AI浪潮中，选择了"AI智能体产品营销"这个交叉赛道。我把对工业、对营销的理解，翻译成AI智能体的产品语言；同时也用AI能力反哺营销效率，让我对<em>"科技+商业"</em>的结合有了切身感知。</p>
+      <div class="tags">
+        <span class="tag">AI智能体</span>
+        <span class="tag">产品营销</span>
+        <span class="tag">科技商业化</span>
+        <span class="tag">效率工具</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-year">2024 — 至今</span>
+      <h3 class="timeline-title">深圳策对咨询 · 营销顾问</h3>
+      <p class="timeline-desc">加入策对咨询，服务于<em>张远坤老师</em>团队。我把过去十八年的积累，聚焦到一件事上：<strong>陪跑中小民营企业老板，把经营目标真正落地</strong>。这是一件值得干一辈子的事。</p>
+      <div class="timeline-insight">"现在做的事情的愿景是希望帮助更多的中小民营企业老板解决企业发展经营落地，实现个人的成长。这件事情链接很多大型的企业老板、还有各行各业的想创业青年群体、及提升个人管理技能。"</div>
+      <div class="tags">
+        <span class="tag">经营咨询</span>
+        <span class="tag">营销顾问</span>
+        <span class="tag">张远坤老师团队</span>
+        <span class="tag">陪跑落地</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============== 核心优势 ============== -->
+<section id="advantage">
+  <span class="section-tag">02 · CORE STRENGTHS</span>
+  <h2 class="section-title">我能为合作方带来什么</h2>
+  <p class="section-subtitle">不是"理论派"，是"实战派"——每一个优势背后都有真实的项目沉淀。</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <span class="card-icon">🏭</span>
+      <h3 class="card-title">制造业底层思维</h3>
+      <p class="card-desc">7年富士康SMT生产管理沉淀。深谙"标准化、流程化、精细化"的工业逻辑，擅长把制造业的<em>系统作战能力</em>迁移到企业管理中。</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤝</span>
+      <h3 class="card-title">团队建设操盘手</h3>
+      <p class="card-desc">从零搭建过多个营销团队，懂销售漏斗、激励机制、文化塑造。<em>营销不是个人英雄，是团队系统作战</em>，这是我的信条。</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤖</span>
+      <h3 class="card-title">科技商业洞察</h3>
+      <p class="card-desc">AI智能体产品营销经验，让我对<em>"科技+商业"</em>的结合有切身感知。能用AI能力反哺营销效率，也能在科技项目里讲商业故事。</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌐</span>
+      <h3 class="card-title">资源链接能力</h3>
+      <p class="card-desc">策对咨询生态链接：大型企业老板、创业青年群体、管理精英。<em>链接即资产</em>，我能为你对接的不只是服务，是一整条资源链。</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎯</span>
+      <h3 class="card-title">目标落地陪跑</h3>
+      <p class="card-desc">深度认同"经营目标落地系统"理念，<em>业绩提升 25%–50%</em>不是空话，是陪跑式服务里客户真正拿到手的成果。</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📚</span>
+      <h3 class="card-title">持续学习的韧性</h3>
+      <p class="card-desc">从高中学历起步，到营销顾问岗位。每一次转身都是<em>归零再出发</em>。这种底层韧性，让我能在任何新的合作场景里快速进入状态。</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============== 导师与平台 ============== -->
+<section id="mentor" style="padding: 0; max-width: none;">
+  <div class="stats-section">
+    <span class="section-tag">03 · MENTOR & PLATFORM</span>
+    <h2 class="section-title">我与导师 · 策对咨询</h2>
+    <p class="section-subtitle">依托策对咨询深耕 28 年的方法论体系与 400+ 企业服务经验，为合作方提供"经得起验证"的实战陪跑。</p>
+
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num" data-target="28">28+</div>
+        <div class="stat-label">年企业管理沉淀</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="16">16+</div>
+        <div class="stat-label">年讲台授课经验</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="400">400+</div>
+        <div class="stat-label">付费企业客户</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="25">25-50%</div>
+        <div class="stat-label">客户业绩提升</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border);">
+      <h3 style="font-size: 24px; margin-bottom: 24px; color: var(--gold);">🎓 张远坤老师 · 核心定位</h3>
+      <div class="grid-3" style="text-align: left;">
+        <div>
+          <div style="color: var(--gold); font-size: 13px; letter-spacing: 1px; margin-bottom: 8px;">身份</div>
+          <div style="font-size: 15px;">深圳策对咨询 董事长</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">经营目标落地系统 创始人</div>
+        </div>
+        <div>
+          <div style="color: var(--gold); font-size: 13px; letter-spacing: 1px; margin-bottom: 8px;">权威认证</div>
+          <div style="font-size: 15px;">央视《信用中国》专访嘉宾</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">国家版权认证课程</div>
+        </div>
+        <div>
+          <div style="color: var(--gold); font-size: 13px; letter-spacing: 1px; margin-bottom: 8px;">高校特聘</div>
+          <div style="font-size: 15px;">清华/北大/中大/浙大 EMBA</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">特聘讲师</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--text-primary);">📚 核心课程</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span class="tag">战略人力资源管理与股权激励</span>
+        <span class="tag">经营目标落地解码</span>
+        <span class="tag">组织变革与领导力</span>
+        <span class="tag">非人力资源经理的人力资源管理</span>
+        <span class="tag">薪酬设计与绩效管理</span>
+        <span class="tag">企业文化落地</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 32px;">
+      <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--text-primary);">🏢 典型服务客户（部分）</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; color: var(--text-secondary); font-size: 14px;">
+        <span class="tag">富士康</span>
+        <span class="tag">中兴通讯</span>
+        <span class="tag">一汽集团</span>
+        <span class="tag">道森股份</span>
+        <span class="tag">飞沃科技</span>
+        <span class="tag">中国银行</span>
+        <span class="tag">建设银行</span>
+        <span class="tag">成都金山房地产</span>
+        <span class="tag">健力宝</span>
+        <span class="tag">香江国际</span>
+        <span class="tag">凡客诚品</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============== 服务案例 ============== -->
+<section id="cases">
+  <span class="section-tag">04 · CASES</span>
+  <h2 class="section-title">陪跑过的合作场景</h2>
+  <p class="section-subtitle">以下为脱敏后的代表性合作场景，展示我能交付的成果形态。</p>
+
+  <div class="case-list">
+    <div class="case-item">
+      <div class="case-head">
+        <div class="case-title">制造业企业 · 营销团队从 0 到 1 搭建</div>
+        <span class="case-industry">制造业</span>
+      </div>
+      <div class="case-flow">
+        <div>
+          <div class="case-step-label">诊断</div>
+          <div class="case-step-text">传统制造业，营销团队缺位，老板亲自跑业务</div>
+        </div>
+        <div class="case-arrow">→</div>
+        <div>
+          <div class="case-step-label">路径</div>
+          <div class="case-step-text">招聘体系+培训体系+激励机制 三位一体搭建</div>
+        </div>
+        <div class="case-arrow">→</div>
+        <div>
+          <div class="case-step-label">成果</div>
+          <div class="case-step-text">6个月组建 15 人营销团队，业绩同比增长 35%</div>
+        </div>
+      </div>
+      <div class="case-result"><strong>结果：</strong>老板从业务一线脱身，专注战略与产品。</div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-head">
+        <div class="case-title">科技创业公司 · AI 智能体产品市场冷启动</div>
+        <span class="case-industry">科技/AI</span>
+      </div>
+      <div class="case-flow">
+        <div>
+          <div class="case-step-label">诊断</div>
+          <div class="case-step-text">产品技术强，但商业化路径模糊</div>
+        </div>
+        <div class="case-arrow">→</div>
+        <div>
+          <div class="case-step-label">路径</div>
+          <div class="case-step-text">行业切片+种子客户验证+渠道伙伴搭建</div>
+        </div>
+        <div class="case-arrow">→</div>
+        <div>
+          <div class="case-step-label">成果</div>
+          <div class="case-step-text">3 个月内完成首批 20+ 付费客户交付</div>
+        </div>
+      </div>
+      <div class="case-result"><strong>结果：</strong>产品从 demo 走向稳定现金流，验证 PMF。</div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-head">
+        <div class="case-title">民营企业 · 经营目标落地陪跑</div>
+        <span class="case-industry">民营企业</span>
+      </div>
+      <div class="case-flow">
+        <div>
+          <div class="case-step-label">诊断</div>
+          <div class="case-step-text">业绩徘徊不前，目标—执行—激励脱节</div>
+        </div>
+        <div class="case-arrow">→</div>
+        <div>
+          <div class="case-step-label">路径</div>
+          <div class="case-step-text">导入"经营目标落地系统"，拆解到部门/人/月</div>
+        </div>
+        <div class="case-arrow">→</div>
+        <div>
+          <div class="case-step-label">成果</div>
+          <div class="case-step-text">年度业绩提升 28%，团队人效显著优化</div>
+        </div>
+      </div>
+      <div class="case-result"><strong>结果：</strong>老板第一次能用一张表看清公司全貌。</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============== 合作方式 ============== -->
+<section id="collab">
+  <span class="section-tag">05 · HOW TO COLLABORATE</span>
+  <h2 class="section-title">我们如何一起合作</h2>
+  <p class="section-subtitle">如果你也在做有意义的事，欢迎来聊聊。我能带来的，不只是"顾问建议"，是"陪跑落地"。</p>
+
+  <div class="collab-grid">
+    <div class="card">
+      <span class="card-icon">📊</span>
+      <h3 class="card-title">管理培训咨询</h3>
+      <p class="card-desc">为企业提供管理培训、目标落地咨询、团队搭建辅导。依托张远坤老师 28 年方法论体系，导入"目标—绩效—薪酬—股权—组织"一体化方案。</p>
+      <div class="tags" style="margin-top: 16px;">
+        <span class="tag">战略诊断</span>
+        <span class="tag">目标拆解</span>
+        <span class="tag">团队辅导</span>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🚀</span>
+      <h3 class="card-title">创业项目营销合作</h3>
+      <p class="card-desc">为创业团队提供营销体系搭建、产品市场冷启动、品牌故事打造。如果你正在做 0-1 的事，我可以做你"营销合伙人"。</p>
+      <div class="tags" style="margin-top: 16px;">
+        <span class="tag">市场冷启动</span>
+        <span class="tag">品牌定位</span>
+        <span class="tag">营销合伙人</span>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🔗</span>
+      <h3 class="card-title">商务资源对接</h3>
+      <p class="card-desc">链接策对咨询生态资源：上市公司老板、传统行业企业家、创业青年群体。如果你需要高端人脉与跨界合作机会，我是一道可靠的桥。</p>
+      <div class="tags" style="margin-top: 16px;">
+        <span class="tag">人脉对接</span>
+        <span class="tag">跨界合作</span>
+        <span class="tag">资源链接</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============== 联系方式 ============== -->
+<section id="contact" style="padding: 0; max-width: none;">
+  <div class="contact">
+    <span class="section-tag">06 · CONTACT</span>
+    <h2>想跟我聊聊？<br /><span style="color: var(--gold);">欢迎来一杯咖啡的时间</span></h2>
+    <p>我常驻深圳，欢迎合伙人、企业家、创业朋友一起交流<br />也欢迎各行业老板、想提升管理技能的朋友一起链接</p>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-item-label">姓名</div>
+        <div class="contact-item-value">罗根银</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">角色</div>
+        <div class="contact-item-value">策对咨询 · 营销顾问</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">服务</div>
+        <div class="contact-item-value">陪跑中小民营企业</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">坐标</div>
+        <div class="contact-item-value">深圳 · 宝安 · 策对科技</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="alert('请通过下方渠道与罗根银先生取得联系')">📩 发起合作咨询</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 罗根银 · LUOGENYIN · 策对咨询 <span class="gold">|</span> 陪跑中小民营企业，<span class="gold">拿结果</span></p>
+  <p style="margin-top: 8px; font-size: 12px;">Designed for partnership · 致每一位同行者</p>
+</footer>
+
+<script>
+  // 移动端菜单
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+  }
+
+  // 滚动渐入动画
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('section, .stats-section, .contact').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // 动态注入动画 CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-visible { opacity: 1; transform: translateY(0); }
+    .nav { transition: background 0.3s, padding 0.3s; }
+    .nav.scrolled { padding: 12px 0; background: rgba(10, 14, 26, 0.95); }
+  `;
+  document.head.appendChild(style);
+
+  // 导航栏滚动效果
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+</script>
+
+</body>
+</html>
